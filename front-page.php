@@ -242,8 +242,8 @@ endif; ?>
 <?php
   // Footer social links below CTA, above footer
   $links = array_filter([
-    'Facebook'          => get_field('facebook_url'),
-    'Instagram'         => get_field('instagram_url'),
+    'LinkedIn'          => get_field('facebook_url'),
+    'Substack'         => get_field('instagram_url'),
     'Creative Portfolio'=> get_field('creative_portfolio_url'),
   ]);
   if( $links ): ?>

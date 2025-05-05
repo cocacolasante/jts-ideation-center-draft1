@@ -11,7 +11,7 @@ get_header(); ?>
   .novel-prototyping-container { 
     
     padding: 0 1.5rem; 
-    background-color: rgba(42, 111, 111, 0.1);
+    background-color: #9AAFC5;
   }
 
   /* Process section styling */
@@ -19,7 +19,7 @@ get_header(); ?>
   .novel-prototyping-header-wrapper {
     width: 80%;
     margin: 0 auto;
-    border: 1px solid #e2e8f0;
+    border: 5px solid #C8AE7D;
     border-radius: 0.5rem;
     background-color: #fff;
     padding: 2rem;
@@ -45,7 +45,7 @@ get_header(); ?>
   .novel-prototyping-modules .module {
     width: 80%;
     margin: 0 auto;
-    border: 1px solid #e2e8f0;
+    border: 5px solid #C8AE7D;
     border-radius: 0.5rem;
     background-color: #fff;
     padding: 2rem;
@@ -62,7 +62,7 @@ get_header(); ?>
   .survey {
     width: 80%;
     margin: 0 auto;
-    border: 1px solid #e2e8f0;
+    border: 5px solid #C8AE7D;
     border-radius: 0.5rem;
     background-color: #fff;
     padding: 2rem;
