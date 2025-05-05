@@ -24,8 +24,7 @@ Version: 1.1
 }
 
 .logo {
-    max-height: 250px;
-    max-width: 250px;
+    max-width: 10%;
 }
 
 .calltoactionbtn {
@@ -47,13 +46,21 @@ Version: 1.1
 }
 
 .q_slider {
-    background-color: #ccffff;
-    padding: 60px 20px;
+    /* background-color: #ccffff; */
 }
 
-.section3, .product-container, .outterCall {
+.section3, .outterCall {
     padding: 40px 20px;
 }
+.prod-cont{
+  background-color: rgba(42, 111, 111, 0.1);
+  padding-bottom: 25px;
+}
+
+.section3{
+  background-color: rgba(42, 111, 111, 0.1);
+}
+
 
 .sellingpoints {
     display: flex;
@@ -189,7 +196,7 @@ Version: 1.1
 
 /* Mission Section Padding and Typography */
 .second_landing {
-    background-color: #f8f8f8;
+  background-color: rgba(42, 111, 111, 0.1);
     padding: 60px 20px;
     text-align: center;
 }
@@ -332,7 +339,7 @@ Version: 1.1
 
 /* ===== Updated Color Scheme ===== */
 :root {
-  --bg: #F7F7F7;       /* Soft White */
+  --bg: rgba(42, 111, 111, 0.1);       /* Soft White */
   --text: #454545;     /* Charcoal Gray */
   --primary: #306868;  /* Deep Teal */
   --secondary: #C8AE7D;/* Muted Gold */
@@ -371,7 +378,7 @@ input[type="button"] {
 
 /* CTA section border detail */
 .outterCall {
-  background-color: var(--primary) !important;
+  background-color: var(--secondary) !important;
 }
 .outterCall .inner_calltoaction {
   border: 2px solid var(--detail) !important;
@@ -416,7 +423,13 @@ input[type="button"] {
 /* ===== Hero Text & Button Color Updates ===== */
 /* Hero headline styling */
 .landing_text .landingwords {
-  font-size: 1.5em !important;
+  font-size: 3.5em !important;
+  font-weight: bold !important;
+  color: #000 !important;
+  margin-bottom: 1em;
+}
+.landing_text .landingwords2 {
+  font-size: 2em !important;
   font-weight: bold !important;
   color: #000 !important;
   margin-bottom: 1em;
@@ -475,6 +488,9 @@ input[type="button"] {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.testimonial-bg {
+  background-color: #F7F3EF;
 }
 .testimonial-text {
   font-style: italic;
@@ -649,4 +665,104 @@ input[type="button"] {
     padding: 5px;
     border-radius: 8px;
     width: 20%;
+}
+
+
+/* Hero Section Custom Styles */
+.q_slider.hero-section {
+    /* background-color: #f7f3ef; */
+    padding: 50px;
+    text-align: center;
+}
+
+
+.q_slider.hero-section .landingwords {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+}
+
+
+/* Call‑to‑Action Section */
+.text-wrapper-cta2 {
+  padding: 60px 20px;
+  text-align: center;
+  
+  border-radius: 12px;
+}
+section.product-container {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.text-wrapper-cta2 h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1F1F1F;
+  
+  line-height: 1.2;
+}
+
+.text-wrapper-cta2 p {
+  font-family: 'Georgia', serif;
+  font-size: 1.125rem;
+  color: #333333;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-wrapper-cta2 .calltoactionbtn {
+  display: inline-block;
+  background-color: #B89959;
+  color: #FFF;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 14px 36px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.25s ease;
+}
+
+.text-wrapper-cta2 .calltoactionbtn:hover {
+  background-color: #A0854B;
+}
+
+/* ————— About Julia Section ————— */
+.about-julia-section {
+  background-color: rgba(42, 111, 111, 0.1); /* same tint as .section3 */
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about-julia-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-julia-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.about-julia-image img {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 24px;
+}
+
+.about-julia-content {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text);
 }

@@ -1,16 +1,19 @@
 <?php get_header(); ?>
 <main class="content">
-    <section class="q_slider" style="background-image: url('<?php echo esc_url(get_field('hero_background') ?: get_template_directory_uri() . '/public/images/headinglayout.jpg'); ?>'); background-size: cover; background-position: center;">
+    <section class="q_slider hero-section">'
     <div class="landing_text">
             <?php
-$hero_logo = function_exists('get_field') ? get_field('hero_logo') : false;
-if ( $hero_logo ) : ?>
-    <img class="logo" src="<?php echo esc_url( $hero_logo['url'] ); ?>" alt="<?php echo esc_attr( $hero_logo['alt'] ); ?>">
-<?php else : ?>
-    <img class="logo" src="<?php echo esc_url( get_template_directory_uri() . '/public/images/new-quill-logo-1.png' ); ?>" alt="Hero Logo">
-<?php endif; ?>
-            <h1 class="landingwords"><?php echo function_exists('get_field') && get_field('hero_headline') ? get_field('hero_headline') : 'WE CAN HELP!'; ?></h1>
-            <button class="calltoactionbtn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</button>
+              $hero_logo = function_exists('get_field') ? get_field('hero_logo') : false;
+              if ( $hero_logo ) : ?>
+                  <img class="logo" src="<?php echo esc_url( $hero_logo['url'] ); ?>" alt="<?php echo esc_attr( $hero_logo['alt'] ); ?>">
+              <?php else : ?>
+                  <img class="logo" src="<?php echo esc_url( get_template_directory_uri() . '/public/images/new-quill-logo-1.png' ); ?>" alt="Hero Logo">
+              <?php endif; ?>
+            <h1 class="landingwords"><?php echo function_exists('get_field') && get_field('hero_tagline') ? get_field('hero_tagline') : 'WE CAN HELP!'; ?></h1>
+            <h3 class="landingwords2"><?php echo function_exists('get_field') && get_field('hero_subtag') ? get_field('hero_subtag') : 'Check us out today!'; ?></h3>
+
+            <a href="<?php echo esc_url( get_permalink( get_page_by_path('contact-us') ) ); ?>"
+                      class="calltoactionbtn">Lets Chat</a>
         </div>
     </section>
 
@@ -31,7 +34,7 @@ if ( $hero_logo ) : ?>
         <div class="point">
           <div class="point-inner">
             <div class="point-front">
-              <h3><?php echo esc_html( get_field('card_1_title') ?: get_field('card_1_title','option') ); ?></h3>
+              <h3><strong><?php echo esc_html( get_field('card_1_title') ?: get_field('card_1_title','option') ); ?></strong></h3>
             </div>
             <div class="point-back">
               <p><?php echo esc_html( get_field('card_1_content') ?: get_field('card_1_content','option') ); ?></p>
@@ -41,7 +44,7 @@ if ( $hero_logo ) : ?>
         <div class="point">
           <div class="point-inner">
             <div class="point-front">
-              <h3><?php echo esc_html( get_field('card_2_title') ?: get_field('card_2_title','option') ); ?></h3>
+              <h3><strong><?php echo esc_html( get_field('card_2_title') ?: get_field('card_2_title','option') ); ?></strong></h3>
             </div>
             <div class="point-back">
               <p><?php echo esc_html( get_field('card_2_content') ?: get_field('card_2_content','option') ); ?></p>
@@ -51,7 +54,7 @@ if ( $hero_logo ) : ?>
         <div class="point">
           <div class="point-inner">
             <div class="point-front">
-              <h3><?php echo esc_html( get_field('card_3_title') ?: get_field('card_3_title','option') ); ?></h3>
+              <h3><strong><?php echo esc_html( get_field('card_3_title') ?: get_field('card_3_title','option') ); ?></strong></h3>
             </div>
             <div class="point-back">
               <p><?php echo esc_html( get_field('card_3_content') ?: get_field('card_3_content','option') ); ?></p>
@@ -62,8 +65,48 @@ if ( $hero_logo ) : ?>
     </div>
     </section>
 
+    <?php if( function_exists('get_field') ): 
+  // grab ACF values
+  $about_title   = get_field('about_julia_title');
+  $about_image   = get_field('about_julia_pic');
+  $about_content = get_field('about_julia_content');
+  
+  // only render if at least one field exists
+  if( $about_title || $about_image || $about_content ): ?>
+  
+  <section class="about-julia-section">
+    <div class="about-julia-inner">
+      
+      <?php if( $about_title ): ?>
+        <h2 class="about-julia-title">
+          <?php echo esc_html( $about_title ); ?>
+        </h2>
+      <?php endif; ?>
+      
+      <?php if( $about_image ): ?>
+        <div class="about-julia-image">
+          <img 
+            src="<?php echo esc_url( $about_image['url'] ); ?>" 
+            alt="<?php echo esc_attr( $about_image['alt'] ?: 'About Julia' ); ?>"
+          />
+        </div>
+      <?php endif; ?>
+      
+      <?php if( $about_content ): ?>
+        <div class="about-julia-content">
+          <?php echo wp_kses_post( $about_content ); ?>
+        </div>
+      <?php endif; ?>
+      
+    </div>
+  </section>
+  
+<?php 
+  endif;
+endif; ?>
 
-    <section class="product-container">
+<div class="prod-cont">
+<section class="product-container">
   <div class="product-header-container">
     <h2>The Storytelling Packages You Need</h2>
     <h3>Creative guidance for any stage</h3>
@@ -125,6 +168,16 @@ if ( $hero_logo ) : ?>
     </div>
   <?php endfor; ?>
 </section>
+      </div>
+
+<div class="text-wrapper-cta2">
+          <h3><?php echo function_exists('get_field') && get_field('cta_headline') ? get_field('cta_headline') : 'Ready to bring your brand story to life?'; ?></h3>
+          <p><?php echo function_exists('get_field') && get_field('cta_subtext') ? get_field('cta_subtext') : 'Let’s collaborate and craft something unforgettable.'; ?></p>
+          <a href="<?php echo esc_url( get_permalink( get_page_by_path('contact-us') ) ); ?>"
+            class="calltoactionbtn">
+            Let's Chat!
+          </a>
+      </div>
 
 
     <?php $cta_bg = function_exists('get_field') ? get_field('cta_background_image') : false; ?>
@@ -179,7 +232,7 @@ if ( $hero_logo ) : ?>
                     <p><?php echo function_exists('get_field') && get_field('cta_subtext') ? get_field('cta_subtext') : 'Let’s collaborate and craft something unforgettable.'; ?></p>
                     <a href="<?php echo esc_url( get_permalink( get_page_by_path('contact-us') ) ); ?>"
                       class="calltoactionbtn">
-                      Contact Us Today
+                      Let's Chat!
                     </a>
                 </div>
             </div>

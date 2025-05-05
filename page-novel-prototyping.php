@@ -100,7 +100,14 @@ get_header(); ?>
         <h2 class="module-title"><?php the_field('np1_out_title'); ?></h2>
       <?php endif; ?>
       <?php if ( get_field('np1_outro') ): ?>
-        <div class="module-description"><?php the_field('np1_outro'); ?></div>
+        <div class="module-description"><?php the_field('np1_outro'); ?>
+        
+      </div>
+      <?php endif; ?>
+      <?php if( $url = get_field('workbook_download') ): ?>
+        <a href="<?php echo esc_url( $url ); ?>" download>
+          Download Workbook
+        </a>
       <?php endif; ?>
     </div>
   <?php endif; ?>
