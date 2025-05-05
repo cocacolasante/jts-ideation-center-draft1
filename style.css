@@ -346,7 +346,7 @@ Version: 1.1
   --neutral: #9AAFC5;  /* Slate Blue */
   --detail: #ABA5A1;   /* Warm Gray */
 }
-
+/* 9AAFC5 */
 /* Base background and text */
 body {
   background-color: var(--bg);
