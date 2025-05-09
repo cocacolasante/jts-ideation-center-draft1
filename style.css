@@ -88,15 +88,6 @@ html {
     transition: all 0.3s ease-in-out;
 }
 
-.product-container {
-  min-width: 80%;
-  margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    border: 5px solid #C8AE7D;
-    gap: 30px;
-}
 
 .product-card, .product-card-middle {
     background: #ffffff;
@@ -147,56 +138,97 @@ html {
 }
 
 
-/* Flip Card for Differentiators */
+/* ——— Flip Card for Differentiators ——— */
 .sellingpoints {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
 
 .point {
-    perspective: 1000px;
-    width: 300px;
-    height: 200px;
+  width: 300px;
+  min-height: 450px;          /* ↑ bump this up if you need more room */
+  border: 5px solid #C8AE7D;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  background: #fff;
+  perspective: 1000px;
+  overflow: hidden;           /* hide anything outside the gold frame */
 }
 
 .point-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
 }
 
 .point:hover .point-inner {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-.point-front, .point-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    padding: 20px;
-    background: white;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+.point-front,
+.point-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  backface-visibility: hidden;
+  overflow-y: scroll;         /* always show the scrollbar so users know it’s scrollable */
+  text-align: center;
 }
 
 .point-front h3 {
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0 auto;
 }
 
 .point-back {
-    transform: rotateY(180deg);
-    font-size: 14px;
-    text-align: center;
+  transform: rotateY(180deg);
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
+
+/* ——— Hide scrollbars on the back side ——— */
+.point-back {
+  overflow-y: auto;            /* allow scrolling if content overflows */
+  -ms-overflow-style: none;    /* IE and Edge */
+  scrollbar-width: none;       /* Firefox */
+}
+.point-back::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari, Opera */
+}
+
+/* ——— Center & bold the front text ——— */
+.point-front {
+  display: flex;             
+  align-items: center;       
+  justify-content: center;   
+  padding: 20px;
+}
+.point-front h3 {
+  font-weight: 700;           /* make it bold */
+  text-align: center;         
+  margin: 0;                  
+}
+
+
+/* Optional: style the scrollbar (WebKit only) */
+.point-back::-webkit-scrollbar {
+  width: 6px;
+}
+.point-back::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
 
 
 /* Mission Section Padding and Typography */
@@ -222,17 +254,54 @@ html {
 
 
 .product-container {
-  width: 80%;
+  display: grid;
+  /* always exactly 4 even-width columns */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;             /* gutter between cards */
+  max-width: 100%;       /* or whatever container max you like */
   margin: 0 auto;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 30px;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: auto;
-    flex-direction: row;
+  padding: 20px;         /* optional */
+  box-sizing: border-box;
 }
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* 3‑col at ≤1200px */
+@media (max-width: 1200px) {
+  .product-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 2‑col at ≤900px */
+@media (max-width: 900px) {
+  .product-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 1‑col at ≤600px */
+@media (max-width: 600px) {
+  .product-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.product-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
 
 .product-card, .product-card-middle {
     background: #ffffff;
@@ -246,6 +315,33 @@ html {
     flex-direction: column;
     justify-content: space-between;
 }
+/* Card 1: new fields styling */
+.card-subheader {
+  font-size: 1rem;
+  color: #555;
+  margin: 0.5em 0 0.25em;
+  text-align: center;
+}
+
+.card-title2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0.25em 0 0.75em;
+  text-align: center;
+}
+
+.card-point {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0 0 1.5em;
+  text-align: center;
+}
+
+/* (Optional) hide any stray checklist if you accidentally left it */
+.product-card.starter .checklist {
+  display: none;
+}
+
 
 .product-card-middle {
     z-index: 2;
@@ -374,6 +470,12 @@ input[type="button"] {
 .card-header.starter { /* Starter green */ }
 .card-header.standard { /* Standard blue */ }
 .card-header.npro { /* Pro gold */ }
+.card-header.premium {
+  background: #f4e8fe;        /* your custom light‑purple (for example) */
+  border-top: 5px solid #8a2be2;  /* a richer purple accent */
+  /* everything else (padding/font) is inherited from .card-header */
+}
+
 
 /* Pricing card borders */
 .product-card,
@@ -775,3 +877,146 @@ section.product-container {
   color: var(--text);
 }
 
+/* ================personal branding page ========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+.top-bar {
+  background: #f0f0f0;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+.top-bar .badge {
+  margin-right: 8px;
+}
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.main-content {
+  flex: 2;
+}
+.header-section h1.main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.header-section .emoji {
+  font-size: 1.5rem;
+}
+.header-section hr {
+  border: none;
+  border-top: 2px solid #333;
+  margin: 15px 0;
+}
+.sub-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.features-list,
+.benefits-list {
+  list-style: none;
+  margin: 20px 0;
+  padding-left: 0;
+}
+.features-list li,
+.benefits-list li {
+  margin-bottom: 10px;
+}
+.alert {
+  margin: 30px 0 15px;
+  font-weight: 600;
+}
+.testimonial {
+  display: flex;
+  align-items: center;
+  background: #007bff;
+  color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 30px;
+}
+.testimonial .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+.testimonial .name {
+  font-weight: 700;
+}
+.testimonial .role {
+  font-size: 0.9rem;
+}
+.cta-form {
+  flex: 1;
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+}
+.cta-form h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.for-free {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.next-webclass {
+  margin-bottom: 10px;
+}
+.countdown {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.time-box {
+  text-align: center;
+}
+.time-box .number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.time-box .label {
+  font-size: 0.8rem;
+}
+.cta-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.cta-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.btn-primary {
+  background: linear-gradient(to bottom, #06bdc0 5%, #06bdc0 100%);
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.secure-note {
+  font-size: 0.8rem;
+  text-align: center;
+}

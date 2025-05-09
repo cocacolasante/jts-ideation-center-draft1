@@ -13,7 +13,7 @@
             <h3 class="landingwords2"><?php echo function_exists('get_field') && get_field('hero_subtag') ? get_field('hero_subtag') : 'Check us out today!'; ?></h3>
 
             <a href="<?php echo esc_url( get_permalink( get_page_by_path('contact-us') ) ); ?>"
-                      class="calltoactionbtn">Lets Chat</a>
+                      class="calltoactionbtn">Let's Chat</a>
         </div>
     </section>
 
@@ -28,13 +28,15 @@
 
     
     <section class="section3">
-      <h2>Ideation Center's Differences</h2>
+      <h2>JT's Ideation Center's Differences</h2>
     <div class="inner_section3">
       <div class="sellingpoints">
         <div class="point">
           <div class="point-inner">
             <div class="point-front">
-              <h3><strong><?php echo esc_html( get_field('card_1_title') ?: get_field('card_1_title','option') ); ?></strong></h3>
+            <h3>
+              <?php the_field('card_1_title'); ?>
+            </h3>
             </div>
             <div class="point-back">
               <p><?php echo esc_html( get_field('card_1_content') ?: get_field('card_1_content','option') ); ?></p>
@@ -44,7 +46,7 @@
         <div class="point">
           <div class="point-inner">
             <div class="point-front">
-              <h3><strong><?php echo esc_html( get_field('card_2_title') ?: get_field('card_2_title','option') ); ?></strong></h3>
+              <h3><?php echo get_field('card_2_title') ?: get_field('card_2_title','option'); ?></h3>
             </div>
             <div class="point-back">
               <p><?php echo esc_html( get_field('card_2_content') ?: get_field('card_2_content','option') ); ?></p>
@@ -54,7 +56,7 @@
         <div class="point">
           <div class="point-inner">
             <div class="point-front">
-              <h3><strong><?php echo esc_html( get_field('card_3_title') ?: get_field('card_3_title','option') ); ?></strong></h3>
+              <h3><?php echo get_field('card_3_title') ?: get_field('card_3_title','option'); ?></h3>
             </div>
             <div class="point-back">
               <p><?php echo esc_html( get_field('card_3_content') ?: get_field('card_3_content','option') ); ?></p>
@@ -106,69 +108,94 @@
 endif; ?>
 
 <div class="prod-cont">
-<section class="product-container">
-  <div class="product-header-container">
-    <h2>The Storytelling Packages You Need</h2>
-    <h3>Creative guidance for any stage</h3>
-  </div>
+  <section class="product-container">
+    <?php 
+      // helper if you need option‐fallbacks – remove if you’re pulling only from the page
+      function acf_opt($k){ return get_field($k) ?: get_field($k,'option'); }
 
-  <?php for ( $i = 1; $i <= 3; $i++ ): 
-    // pull in the ACF values
-    $title     = get_field("prodcard{$i}_title");
-    $sub       = get_field("prodcard{$i}_subheader");
-    $p1        = get_field("prodcard{$i}_point1");
-    $p2        = get_field("prodcard{$i}_point2");
-    $p3        = get_field("prodcard{$i}_point3");
-    $price     = get_field("prodcard{$i}_price");
+      // header‐variant map
+      $hdr_map = [
+        1 => 'starter',
+        2 => 'standard',
+        3 => 'npro',
+        4 => 'premium',
+      ];
 
-    // card wrapper classes & IDs
-    $card_classes = [ 'product-card' ];
-    if ( $i === 2 ) {
-      $card_classes[] = 'product-card-middle';
-    }
-    $card_id = 'contactBtnPro' . ( $i === 1 ? '' : $i );
+      for( $i = 1; $i <= 4; $i++ ):
+        // card wrapper classes
+        $classes = ['product-card'];
+        if( $i===2 )      $classes[] = 'product-card-middle';
+        elseif( $i===4 )  $classes[] = 'product-card-last';
 
-    // header variant classes
-    $hdr_classes = [ 'card-header' ];
-    if ( $i === 1 )    { $hdr_classes[] = 'starter'; }
-    elseif ( $i === 2 ){ $hdr_classes[] = 'standard'; }
-    else               { $hdr_classes[] = 'npro'; }
-  ?>
-    <div class="<?php echo esc_attr( implode(' ', $card_classes) ); ?>"
-         id="<?php echo esc_attr( $card_id ); ?>">
-      
-      <?php if ( $title ): ?>
-        <div class="<?php echo esc_attr( implode(' ', $hdr_classes) ); ?>">
-          <?php echo esc_html( $title ); ?>
-        </div>
-      <?php endif; ?>
+        // card ID
+        $id = 'contactBtnPro' . ($i>1 ? $i : '');
+    ?>
+      <div id="<?php echo esc_attr($id) ?>"
+           class="<?php echo esc_attr(implode(' ',$classes)); ?>">
 
-      <?php if ( $i === 2 ): // Most Popular badge ?>
-        <i>For Entrepreneurs, Authors, and Speakers</i>
-      <?php elseif ( $i === 3 && $sub ): // Limited availability ?>
-        <p id="limitedavail"><?php echo esc_html( $sub ); ?></p>
-      <?php elseif ( $sub ): // subheader for cards 1 & 2 ?>
-        <p><?php echo esc_html( $sub ); ?></p>
-      <?php endif; ?>
+        <?php if( $i === 1 ): 
+          // === Card 1: title / subheader / title2 / one point ===
+          $title   = acf_opt('prodcard1_title');
+          $sub     = acf_opt('prodcard1_subheader');
+          $title2  = acf_opt('prodcard1_title2');
+          $point   = acf_opt('prodcard1_point');
+        ?>
+          <?php if( $title ): ?>
+            <div class="card-header starter">
+              <?php echo esc_html( $title ); ?>
+            </div>
+          <?php endif; ?>
 
-      <ul class="checklist">
-        <?php if ( $p1 ) echo '<li class="list_item">' . esc_html($p1) . '</li>'; ?>
-        <?php if ( $p2 ) echo '<li class="list_item">' . esc_html($p2) . '</li>'; ?>
-        <?php if ( $p3 ) echo '<li class="list_item">' . esc_html($p3) . '</li>'; ?>
-      </ul>
+          <?php if( $sub ): ?>
+            <p class="card-subheader">
+              <?php echo esc_html( $sub ); ?>
+            </p>
+          <?php endif; ?>
 
-      <?php if ( $price ): ?>
-        <h6>
-          <?php 
-            // re-add “Price:” for cards 1 & 2
-            echo ( $i < 3 ? 'Price: ' : '' ) . esc_html( $price ); 
-          ?>
-        </h6>
-      <?php endif; ?>
-    </div>
-  <?php endfor; ?>
-</section>
+          <?php if( $title2 ): ?>
+            <h4 class="card-title2">
+              <?php echo esc_html( $title2 ); ?>
+            </h4>
+          <?php endif; ?>
+
+          <?php if( $point ): ?>
+            <p class="card-point">
+              <?php echo esc_html( $point ); ?>
+            </p>
+          <?php endif; ?>
+
+        <?php else: 
+          // === Cards 2–4: your existing markup ===
+          $title = acf_opt("prodcard{$i}_title");
+          $sub   = acf_opt("prodcard{$i}_subheader");
+          $p1    = acf_opt("prodcard{$i}_point1");
+          $p2    = acf_opt("prodcard{$i}_point2");
+          $p3    = acf_opt("prodcard{$i}_point3");
+        ?>
+          <?php if( $title ): ?>
+            <div class="card-header <?php echo $hdr_map[$i]; ?>">
+              <?php echo esc_html( $title ); ?>
+            </div>
+          <?php endif; ?>
+          <?php if( $sub ): ?>
+            <p><?php echo esc_html( $sub ); ?></p>
+          <?php endif; ?>
+
+          <ul class="checklist">
+            <?php if($p1) echo '<li>'.esc_html($p1).'</li>'; ?>
+            <?php if($p2) echo '<li>'.esc_html($p2).'</li>'; ?>
+            <?php if($p3) echo '<li>'.esc_html($p3).'</li>'; ?>
+          </ul>
+        <?php endif; ?>
+
+        <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact-us'))); ?>"
+           class="calltoactionbtn">Let's Chat</a>
       </div>
+    <?php endfor; ?>
+  </section>
+</div>
+
+
 
 <div class="text-wrapper-cta2">
           <h3><?php echo function_exists('get_field') && get_field('cta_headline') ? get_field('cta_headline') : 'Ready to bring your brand story to life?'; ?></h3>
@@ -220,6 +247,27 @@ endif; ?>
     <div class="testimonial-card">
       <p class="testimonial-text">"The workshop was incredibly practical, giving me the tools to craft meaningful stories around topics I hadn’t considered before. It opened my eyes to the power of storytelling in shaping my brand and engaging my audience. My biggest takeaway? Stories about my business aren’t just interesting—they’re essential."</p>
       <p class="testimonial-author">Dave Brown</p>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">“Julia is an excellent writer and communicator and an insightful collaborator.”</p>
+      <p class="testimonial-author">Christopher Munden</p>
+    </div>
+    <div class="testimonial-card">“Be sure to contact this powerhouse. The definition of Hero’s Story, if you want yours articulated, get
+      in touch ASAP.”“Julia is an excellent writer and communicator and an insightful collaborator.”</p>
+      <p class="testimonial-author">Cullen P. Haynes</p>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">“Julia is a powerhouse creative whose ideas are matched only by her insatiable drive to bring them
+to life. Her depth of knowledge around the power of story and the underlying structures that help us
+develop and tell them is potent. Her generous spirit and collaborative approach provide a sanctuary
+for like-minded writers and creators to connect and thrive. Creator, collaborator, doer - Julia does the
+reps.”</p>
+      <p class="testimonial-author">Mo MacRae</p>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">“Julia is a star! She has been incredibly helpful in giving me a fresh perspective on my work- she is
+      very perceptive, insightful, and a great source of ideas and encouragement.”</p>
+      <p class="testimonial-author">Aryajit Heppell</p>
     </div>
   </div>
 </section>
