@@ -27,7 +27,8 @@ get_header(); ?>
   }
   .process-image {
     width: 100%;
-    max-height: 250px;
+    
+    min-height:50vh;
     object-fit: cover;
     border-radius: 0.5rem;
     margin-bottom: 0.25rem; /* reduced space */
@@ -72,7 +73,7 @@ get_header(); ?>
 </style>
 
 <div class="novel-prototyping-container">
-  <h2 class="process-title">The Process</h2>
+  <h2 class="process-title">The Narrative Prototyping Process</h2>
   <div class="novel-prototyping-header-wrapper">
     <?php if (get_field('np1_process_image')): ?>
       <img src="<?php the_field('np1_process_image'); ?>" alt="Process Image" class="process-image" />
@@ -81,6 +82,11 @@ get_header(); ?>
     <div class="intro-text">
       <?php the_field('np1_intro_text'); ?>
     </div>
+    <?php if( $url = get_field('workbook_download') ): ?>
+        <a href="<?php echo esc_url( $url ); ?>" download>
+          Download Workbook
+        </a>
+      <?php endif; ?>
   </div>
 
   <div class="novel-prototyping-modules">
@@ -94,42 +100,10 @@ get_header(); ?>
         <div class="module-assignment"><strong>Assignment:</strong> <?php the_field("np1_mod{$i}_assignment"); ?></div>
       </div>
     <?php endfor; ?>
-  <?php if ( get_field('np1_out_title') || get_field('np1_outro') ): ?>
-    <div class="module">
-      <?php if ( get_field('np1_out_title') ): ?>
-        <h2 class="module-title"><?php the_field('np1_out_title'); ?></h2>
-      <?php endif; ?>
-      <?php if ( get_field('np1_outro') ): ?>
-        <div class="module-description"><?php the_field('np1_outro'); ?>
-        
-      </div>
-      <?php endif; ?>
-      <?php if( $url = get_field('workbook_download') ): ?>
-        <a href="<?php echo esc_url( $url ); ?>" download>
-          Download Workbook
-        </a>
-      <?php endif; ?>
-    </div>
-  <?php endif; ?>
 
   </div>
 
-  <div class="office-hours">
-    <p>Office Hours</p>
-    <?php the_field('contact_us_hours_m_f'); ?>
-      </br>
-      <?php the_field('contact_us_hours_sat'); ?>
-      </br>
-      <?php the_field('contact_us_hours_sun'); ?></div>
-  <div class="survey">
-    <form>
-      <label class="block mb-4"><?php the_field('np1_survey_question'); ?></label>
-      <?php $options = explode("\n", get_field('np1_survey_options')); foreach ($options as $option): $option = trim($option); ?>
-        <div class="mb-2"><input type="radio" name="survey" value="<?php echo esc_attr($option); ?>"> <?php echo esc_html($option); ?></div>
-      <?php endforeach; ?>
-      <button type="submit" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg">Submit</button>
-    </form>
-  </div>
+  
 </div>
 
 <?php get_footer(); ?>

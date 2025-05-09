@@ -269,6 +269,18 @@ reps.”</p>
       very perceptive, insightful, and a great source of ideas and encouragement.”</p>
       <p class="testimonial-author">Aryajit Heppell</p>
     </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">"This workshop teaches you how to tell concise and impactful stories that reflect your authentic self and help build deeper connections with others. I learned that it’s essential to first identify your strengths and reflect on moments when you’ve applied them. Taking stock of these experiences provides clarity and allows us to communicate more effectively."</p>
+      <p class="testimonial-author">Ramune Bartuskaite</p>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">"It encourages you to take the time to truly reflect on your experiences and how they’ve shaped who you are today. Being prepared—knowing what you want to say about yourself—gives you a stronger sense of professional identity and allows you to communicate a more cohesive message."</p>
+      <p class="testimonial-author">Jaimie Yakaboski</p>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">"This workshop was truly engaging and memorable. I felt warmly welcomed upon entry, excited by the freshness of the activity, and accomplished by the end. I learned a lot, but what stood out the most was the idea of 'teaching from the scar, not the wound.' That insight shifted my perspective and deeply inspired the story I created during the workshop."</p>
+      <p class="testimonial-author">Teirra Renee</p>
+    </div>
   </div>
 </section>
 
