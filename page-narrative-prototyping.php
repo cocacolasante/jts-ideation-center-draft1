@@ -108,6 +108,47 @@ get_header(); ?>
   opacity: 0.9;
 }
 
+/* Extra‑small devices (portrait phones, <576px) */
+@media (max-width: 575.98px) {
+  .process-image {
+    object-fit: cover;
+    object-position: right center;
+  }
+}
+
+/* Small devices (landscape phones, ≥576px and <768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .process-image {
+    object-fit: cover;
+    object-position: right center;
+  }
+}
+
+/* Medium devices (tablets, ≥768px and <992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .process-image {
+    object-fit: cover;
+    object-position: right center;
+  }
+}
+
+/* Large devices (desktops, ≥992px and <1200px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .process-image {
+    object-fit: cover;
+    object-position: center center; /* switch back to center on larger */
+  }
+}
+
+/* Extra‑large devices (large desktops, ≥1200px) */
+@media (min-width: 1200px) {
+  .process-image {
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+
 
 </style>
 

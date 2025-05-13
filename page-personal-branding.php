@@ -310,6 +310,169 @@ get_header();
 }
 .package-list { list-style: none; margin: 20px 0; padding-left: 0; }
 
+/* ── Medium screens (tablets, <992px) ── */
+@media (max-width: 991.98px) {
+  .container {
+    flex-direction: column;
+  }
+  /* remove the center divider */
+  .container::before {
+    display: none;
+  }
+  /* full‑width panels */
+  .main-content,
+  .cta-form {
+    flex: none;
+    width: 100%;
+    margin: 0 auto 30px;
+  }
+  /* smaller side gutters */
+  .container {
+    gap: 20px;
+    padding: 30px 15px;
+  }
+}
+
+/* ── Small screens (landscape phones, <768px) ── */
+@media (max-width: 767.98px) {
+  /* tighten up headings */
+  .header-section h1.main-title {
+    font-size: 2rem;
+  }
+  .header-section h2 {
+    font-size: 1.25rem;
+  }
+  /* shrink carousel nav buttons */
+  .carousel-nav {
+    font-size: 1.5rem;
+    padding: 0.2rem 0.6rem;
+  }
+  .media-carousel .carousel-item video,
+  .media-carousel .carousel-item img {
+    max-height: 200px;
+  }
+  /* adjust CTA button */
+  .calltoactionbtn,
+  .btn-primary {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+/* ── Extra‑small screens (portrait phones, <576px) ── */
+@media (max-width: 575.98px) {
+  /* collapse padding further */
+  .container {
+    padding: 20px 10px;
+  }
+  /* even smaller fonts */
+  .header-section h1.main-title {
+    font-size: 1.5rem;
+  }
+  .header-section h2 {
+    font-size: 1.1rem;
+  }
+  .sub-title {
+    font-size: 0.9rem;
+  }
+  /* stack carousel nav above/below so they don’t overlap content */
+  .carousel-prev { left: 5px; }
+  .carousel-next { right: 5px; }
+  /* columns already stacked, so remove extra bottom margin on last panel */
+  .cta-form { margin-bottom: 0; }
+}
+
+/* ── Slightly smaller desktops (≤1200px) ── */
+@media (max-width: 1199.98px) {
+  .container {
+    gap: 20px;
+    padding: 30px 15px;
+  }
+}
+
+/* ── Tablets and small laptops (≤992px) ── */
+@media (max-width: 991.98px) {
+  /* 1) Stack the columns */
+  .container {
+    flex-direction: column;
+  }
+
+  /* 2) Hide the center divider */
+  .container::before {
+    display: none;
+  }
+
+  /* 3) Make both panels full‑width and reset their margins */
+  .main-content,
+  .cta-form {
+    flex: none;
+    width: 100%;
+    margin: 0 auto 30px;
+  }
+}
+
+/* ── Landscape phones (≤768px) ── */
+@media (max-width: 767.98px) {
+  /* tighten up headings */
+  .header-section h1.main-title {
+    font-size: 2rem;
+  }
+  .header-section h2 {
+    font-size: 1.25rem;
+  }
+
+  /* scale down the card headers so they don’t feel huge */
+  .pb-card .pb-content,
+  .dfy-card .dfy-content {
+    font-size: 1.1rem;
+  }
+
+  /* shrink the carousel nav buttons */
+  .carousel-nav {
+    font-size: 1.5rem;
+    padding: 0.2rem 0.6rem;
+  }
+  .media-carousel .carousel-item video,
+  .media-carousel .carousel-item img {
+    max-height: 200px;
+  }
+
+  /* smaller CTA buttons */
+  .calltoactionbtn,
+  .btn-primary {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+/* ── Portrait phones (≤576px) ── */
+@media (max-width: 575.98px) {
+  /* collapse side padding on the container */
+  .container {
+    padding: 20px 10px;
+  }
+
+  /* even smaller fonts for titles */
+  .header-section h1.main-title {
+    font-size: 1.5rem;
+  }
+  .header-section h2 {
+    font-size: 1.1rem;
+  }
+  .sub-title {
+    font-size: 0.9rem;
+  }
+
+  /* center the cards in their own full‑width rows */
+  .pb-card,
+  .dfy-card {
+    margin: 0 auto 20px;
+  }
+
+  /* ensure the last panel doesn’t get extra bottom space */
+  .cta-form { margin-bottom: 0; }
+}
+
 
 </style>
 
@@ -460,4 +623,16 @@ get_header();
     update();
   });
 })();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const toggle = document.getElementById('menu-toggle');
+  const menu   = document.getElementById('primary-menu');
+  if (!toggle || !menu) return;
+  toggle.addEventListener('click', function(){
+    const expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', String(!expanded));
+    menu.classList.toggle('active');
+  });
+});
 </script>

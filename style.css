@@ -28,7 +28,7 @@ html {
 }
 
 .logo {
-    max-width: 10%;
+    max-width: 25%;
 }
 
 .calltoactionbtn {
@@ -1060,4 +1060,341 @@ body {
   font-size: 2rem;    /* tweak size to your taste */
   color: #374151;     /* match your theme’s dark gray, or choose another */
   line-height: 1.2;
+}
+
+
+/* Extra‑small devices (portrait phones, <576px) */
+@media (max-width: 575.98px) {
+  .process-image {
+    object-fit: cover;
+    object-position: right center;
+  }
+}
+
+/* Small devices (landscape phones, ≥576px and <768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .process-image {
+    object-fit: cover;
+    object-position: right center;
+  }
+}
+
+/* Medium devices (tablets, ≥768px and <992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .process-image {
+    object-fit: cover;
+    object-position: right center;
+  }
+}
+
+/* Large devices (desktops, ≥992px and <1200px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .process-image {
+    object-fit: cover;
+    object-position: center center; /* switch back to center on larger */
+  }
+}
+
+/* Extra‑large devices (large desktops, ≥1200px) */
+@media (min-width: 1200px) {
+  .process-image {
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+/* ── Medium screens (≤992px) ── */
+@media (max-width: 991.98px) {
+  .contact-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 1rem;
+  }
+  .contact-page-hours {
+    width: 100%;
+    margin: 0 0 1.5rem;
+  }
+  .contact-page {
+    width: 100%;
+    margin: 0 0 1.5rem;
+  }
+  .scheduler-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 1.5rem auto;
+  }
+}
+
+/* ── Small screens (≤768px) ── */
+@media (max-width: 767.98px) {
+  /* tighten up the hours box */
+  .contact-page-hours {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  /* shrink heading and iframe container */
+  .contact-page h1 {
+    font-size: 1.5rem;
+  }
+  .contact-page main iframe {
+    min-height: 500px;
+  }
+  .scheduler-wrapper iframe {
+    min-height: 600px;
+  }
+}
+
+/* ── Extra‑small screens (≤576px) ── */
+@media (max-width: 575.98px) {
+  /* collapse any remaining margins */
+  .contact-page-container {
+    padding: 0 0.5rem;
+  }
+  .contact-page-hours,
+  .contact-page,
+  .scheduler-wrapper {
+    padding: 0.5rem;
+    margin: 0 auto 1rem;
+  }
+  /* make sure the form and scheduler fill the viewport */
+  .contact-page main iframe,
+  .scheduler-wrapper iframe {
+    width: 100%;
+    min-height: 400px;
+  }
+}
+
+
+/* Base: hide the toggle on desktop */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
+  z-index: 999;
+}
+
+/* the three bars */
+.menu-toggle .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #374151;
+  margin: 5px 0;
+  transition: background 0.3s;
+}
+
+/* Mobile only: show toggle, hide full menu */
+@media (max-width: 767.98px) {
+  /* show hamburger */
+  .menu-toggle {
+    display: block;
+  }
+  /* hide the menu by default */
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: #f8f8f8;  /* match your cta-form bg or adjust */
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+  }
+  /* when active (via JS), show it */
+  .nav-menu.active {
+    display: flex;
+  }
+  /* optional: make each link full‑width and padded */
+  .nav-menu li {
+    margin: 0.5rem 0;
+  }
+  .nav-menu a {
+    display: block;
+    padding: 0.5rem;
+  }
+}
+/* ── Mobile header tweaks (≤768px) ── */
+@media (max-width: 767.98px) {
+  /* 1) Enlarge the logo */
+
+  /* 2) Always show the hamburger on the right, hide the menu by default */
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    order: 2;               /* make sure it sits after the logo in the flex order */
+    margin-left: auto;      /* push it all the way to the right */
+  }
+  .nav-menu {
+    display: none;          /* keep the menu hidden until you toggle it */
+  }
+
+  /* 3) Slim “three lines” bars */
+  .menu-toggle .bar {
+    display: block;
+    width: 25px;            /* bar width */
+    height: 3px;            /* bar thickness */
+    background-color: #333; /* dark gray lines */
+    margin: 4px 0;          /* vertical spacing between bars */
+  }
+
+  /* 4) When menu is active, show it full‐width below header */
+  .nav-menu.active {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    background: #f8f8f8;
+    padding: 1rem 0;
+    margin-top: 0.5rem;
+  }
+
+  .nav-menu.active li {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+  .nav-menu.active a {
+    display: block;
+  }
+}
+/* ── Mobile (≤768px) header fixes ── */
+@media (max-width: 767.98px) {
+  /* 1) Logo larger */
+
+  /* 2) Hamburger button: fully transparent, three dark lines */
+  .menu-toggle {
+    background: transparent !important;
+    border: none;
+    padding: 0;
+    margin-left: auto; /* stays on the right */
+  }
+  .menu-toggle .bar {
+    background-color: #374151 !important; /* dark‑gray lines */
+  }
+
+  /* 3) Dropdown styling & smooth transition */
+  .nav-menu {
+    /* remove the old hide/show via display */
+    display: flex !important;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0;                /* hidden by default */
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    background-color: #f0f0f0;    /* match your site’s overall bg */
+    border-radius: 0 0 8px 8px;   /* round the bottom corners */
+    margin-top: 0.5rem;
+  }
+  .nav-menu.active {
+    max-height: 500px;             /* big enough to show all items */
+    opacity: 1;
+  }
+  .nav-menu li {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+  .nav-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* 1) Shrink the right padding of the header so the toggle sits closer to the edge */
+  .header_inner {
+    padding-right: 10px !important;
+  }
+
+  /* 2) Zero out any right‐margin on the toggle itself */
+  .menu-toggle {
+    margin-left: auto;
+    margin-right: 0 !important;
+  }
+
+  /* 3) Give your mobile dropdown a new BG color */
+  .nav-menu,
+  .nav-menu.active {
+    background-color: #dde3e3 !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* make header a positioning context */
+  .header_inner {
+    position: relative;
+  }
+
+  /* position the menu as an overlay, flush right */
+  .nav-menu {
+    position: absolute;
+    top: 100%;            /* just below the header bar */
+    right: 10px;          /* small gap from the edge */
+    margin: 0;            /* remove any auto margins */
+    width: 200px;         /* adjust as needed */
+    max-width: 80%;
+    background-color: #dde3e3 !important;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    z-index: 999;         /* above everything else */
+  }
+
+  /* when active, expand it */
+  .nav-menu.active {
+    max-height: 500px;    /* or big enough to fit your links */
+    opacity: 1;
+  }
+
+  /* align the items inside */
+  .nav-menu li {
+    text-align: left;     /* or center if you prefer */
+    margin: 0;
+  }
+  .nav-menu a {
+    padding: 0.5rem;
+    display: block;
+  }
+}
+
+
+@media (max-width: 767.98px) {
+  /* 1) Drop out of absolute positioning and span full‑width */
+  .nav-menu {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 auto;           /* center if you like */
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    background-color: #dde3e3 !important;
+  }
+
+  /* 2) When active, expand its height so it pushes content down */
+  .nav-menu.active {
+    max-height: 500px;         /* adjust to fit your item count */
+    opacity: 1;
+  }
+
+  /* 3) Tweak spacing so it sits right under the header */
+  .header_inner {
+    padding-bottom: 0;         /* remove bottom padding so menu tucks right below */
+  }
+  .nav-menu li {
+    margin: 0.5rem 0;
+  }
+  .nav-menu a {
+    padding: 0.5rem 1rem;
+    display: block;
+  }
 }

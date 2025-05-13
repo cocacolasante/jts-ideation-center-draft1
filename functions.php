@@ -18,4 +18,11 @@ function jts_enqueue_scripts() {
     wp_enqueue_script( 'jts-main', get_template_directory_uri() . '/js/scripts.js', [], false, true );
 }
 add_action( 'wp_enqueue_scripts', 'jts_enqueue_scripts' );
+
+// functions.php
+function jt_register_menus() {
+  register_nav_menu( 'primary', 'Primary Menu' );
+}
+add_action( 'init', 'jt_register_menus' );
+
 ?>
