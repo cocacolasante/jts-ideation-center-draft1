@@ -70,6 +70,45 @@ get_header(); ?>
     margin-bottom: 2.5rem;
   }
   .survey label { font-weight: 600; }
+/* Ending CTA – match modules & header wrapper */
+.ending-cta {
+  width: 80%;
+  margin: 0 auto 2.5rem;          /* centered, same bottom gap */
+  border: 5px solid #C8AE7D;      /* same gold border */
+  border-radius: 0.5rem;          
+  background-color: #fff;         
+  padding: 2rem;                  /* same padding as modules */
+  box-shadow: none;               /* remove the old shadow */
+  text-align: center;             
+  box-sizing: border-box;
+}
+
+/* Heading – match .module-title */
+.ending-cta-heading {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;         /* same spacing as module titles */
+  color: #374151;
+  line-height: 1.2;
+}
+
+/* Button – you can keep your existing styling, or bump it up visually */
+.ending-cta-button {
+  display: inline-block;
+  background: linear-gradient(to bottom, #06bdc0 5%, #06bdc0 100%);
+  color: #fff;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.ending-cta-button:hover {
+  opacity: 0.9;
+}
+
+
 </style>
 
 <div class="novel-prototyping-container">
@@ -102,6 +141,31 @@ get_header(); ?>
     <?php endfor; ?>
 
   </div>
+
+  <div class="ending-cta">
+    <?php
+      // grab the ACF values
+      $cta_heading = get_field('ending_cta_heading');
+      $cta_link    = get_field('ending_cta_button_link');
+      $cta_text    = get_field('ending_cta_button_text');
+    ?>
+
+    <?php if( $cta_heading ): ?>
+      <h3 class="ending-cta-heading">
+        <?php echo esc_html( $cta_heading ); ?>
+      </h3>
+    <?php endif; ?>
+
+    <?php if( $cta_link && $cta_text ): ?>
+      <a
+        href="<?php echo esc_url( $cta_link ); ?>"
+        class="calltoactionbtn"
+      >
+        <?php echo esc_html( $cta_text ); ?>
+      </a>
+    <?php endif; ?>
+  </div>
+
 
   
 </div>

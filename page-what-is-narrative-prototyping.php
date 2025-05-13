@@ -42,7 +42,7 @@ get_header(); ?>
 
   .process-image {
     width: 100%;
-    max-height: 250px;
+    min-height:50vh;
     object-fit: cover;
     border-radius: 0.5rem;
     margin-bottom: 0.25rem;
@@ -158,8 +158,13 @@ get_header(); ?>
     <?php if ( $link = get_field('cta_button_link') ): ?>
       <div class="button-box">
         <p><?php echo wp_kses_post( nl2br( $cta ) ); ?></p>
-        <a href="/narrative-prototyping" class="button">
-          <?php echo esc_html( get_field('cta_button_text') ?: 'Get Started Today' ); ?>
+       <?php
+          // Grab ACF values (with a fallback URL if you like)
+          $cta_link = get_field('cta_button_link') ?: '/narrative-prototyping';
+          $cta_text = get_field('cta_button_text') ?: 'Get Started Today';
+        ?>
+        <a href="<?php echo esc_url( $cta_link ); ?>" class="button">
+          <?php echo esc_html( $cta_text ); ?>
         </a>
       </div>
     <?php endif; ?>

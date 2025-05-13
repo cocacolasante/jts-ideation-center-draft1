@@ -16,7 +16,7 @@ $bg_image = get_field('contact_bg_image');
           
           
         </br>
-        <p>Email Us: <?php the_field('contact_us_email'); ?> </p>
+        <!-- <p>Email Us: <?php the_field('contact_us_email'); ?> </p> -->
       
       </div>
     <main class="contact-page">
@@ -33,6 +33,19 @@ $bg_image = get_field('contact_bg_image');
     src="https://hello.dubsado.com:443/public/appointment-scheduler/68193c7bd4730b003aa6f2c3/schedule?isIframe=true"
     scrolling="no"
   ></iframe>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.14/iframeResizer.min.js"></script>
+<script>
+  // target our scheduler iframe by ID
+  iFrameResize({
+    checkOrigin: false,
+    heightCalculationMethod: 'max',  
+    resizedCallback: function(messageData){
+      // optional: you can console.log the new height if you’re debugging
+      // console.log('New height:', messageData.height);
+    }
+  }, '#dubsado-scheduler');
+</script>
+
 </div>
 </div>
   <?php

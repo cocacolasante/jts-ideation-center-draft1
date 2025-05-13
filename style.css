@@ -7,6 +7,7 @@ Version: 1.1
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 * {
     margin: 0;
@@ -31,7 +32,6 @@ html {
 }
 
 .calltoactionbtn {
-    background: linear-gradient(to bottom, #06bdc0 5%, #06bdc0 100%);
     border-radius: 5px;
     border: 1px solid #000000;
     display: inline-block;
@@ -1032,20 +1032,32 @@ body {
   text-align: center;
 }
 
-
- /* Scheduler wrapper */
- .scheduler-wrapper {
-  max-width: 80%;           /* takes up 80% of the viewport width */
-       
-  margin: 1rem auto;    /* center it with some vertical space */
+/* Scheduler wrapper – full‑width within its container */
+.scheduler-wrapper {
+  width: 90%;
+       /* adjust to taste */
+  margin: 2rem auto;
 }
-/* Iframe itself */
+/* Let the iframe grow and remove the old max‑height cap */
 .scheduler-wrapper iframe {
   width: 100%;
-  max-height: 400px;    /* lowered from 500px */
-  border: 0;
+  height: auto !important;
+  min-height: 1000px;     /* ensure it’s tall enough */
+  border: none;
   border-radius: 0.5rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+/* signature section */
+.signature-div {
+  text-align: center;
+  margin: 20px 0; /* adjust vertical spacing as needed */
+}
 
+/* 3) Apply the cursive font */
+.signature {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;    /* tweak size to your taste */
+  color: #374151;     /* match your theme’s dark gray, or choose another */
+  line-height: 1.2;
+}

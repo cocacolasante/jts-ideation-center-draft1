@@ -93,6 +93,9 @@
           />
         </div>
       <?php endif; ?>
+      <div class="signature-div">
+        <h3 class="signature" >Julia Taus</h3>
+      </div>
       
       <?php if( $about_content ): ?>
         <div class="about-julia-content">
