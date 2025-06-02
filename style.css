@@ -1,9 +1,9 @@
 
 /*
-Theme Name: JT's Ideation Center
+Theme Name: JT's Ideation Center V2
 Author: Anthony Colasante
 Description: Full layout + interaction styles for JT's Ideation Center
-Version: 1.1
+Version: 2.1
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
@@ -28,7 +28,7 @@ html {
 }
 
 .logo {
-    max-width: 25%;
+    max-width: 20%;
 }
 
 .calltoactionbtn {
@@ -1396,5 +1396,146 @@ body {
   .nav-menu a {
     padding: 0.5rem 1rem;
     display: block;
+  }
+}
+/* ── Global Mobile Menu Styling ── */
+@media (max-width: 767.98px) {
+  /* Always show the hamburger on phones */
+  .menu-toggle {
+    display: block !important;
+    background: transparent !important;
+    border: none;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  .menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background: #374151;
+    margin: 4px 0;
+    display: block;
+  }
+
+  /* Hide the desktop nav, reset dropdown */
+  .nav-menu {
+    display: flex !important;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    background: #dde3e3;
+    width: 100%;
+    transition: max-height .4s ease, opacity .4s ease;
+  }
+  .nav-menu.active {
+    max-height: 500px;
+    opacity: 1;
+  }
+  .nav-menu li {
+    margin: .5rem 0;
+    text-align: center;
+  }
+  .nav-menu a {
+    display: block;
+    padding: .5rem 1rem;
+  }
+
+  /* Enlarge your logo on phones */
+  .header_logo img,
+  .custom-logo-link img {
+    max-height: 80px;
+    width: auto;
+  }
+}
+
+/* allow the mobile menu up through tablet widths */
+@media (max-width: 1023.98px) {
+  /* 1) show the hamburger */
+  .menu-toggle {
+    display: block !important;
+    /* …rest of your existing rules… */
+  }
+
+  /* 2) hide the desktop nav & style the dropdown */
+  .nav-menu {
+    display: flex !important;
+    /* … */
+  }
+  .nav-menu.active {
+    /* … */
+  }
+
+  /* 3) logo sizing, etc. */
+  .header_logo img,
+  .custom-logo-link img {
+    max-height: 80px;
+    width: auto;
+  }
+
+  /* etc… */
+}
+
+/* ── Unified mobile + tablet menu (≤1024px) ── */
+@media (max-width: 1023.98px) {
+  /* 1) Show the hamburger, hide the normal menu */
+  .menu-toggle {
+    display: block !important;
+    background: transparent !important;
+    border: none;
+    margin-left: auto;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  .menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background: #374151;
+    margin: 4px 0;
+    display: block;
+  }
+  /* Hide the desktop menu */
+  .nav-menu {
+    display: none !important;
+  }
+
+  /* 2) Style the dropdown exactly like your mobile version */
+  .nav-menu.active {
+    display: flex !important;
+    flex-direction: column;
+    width: 200px;               /* adjust as desired */
+    max-width: 80%;             /* prevents overflow on tiny screens */
+    margin: 0 10px;             /* 10px from right & left edges */
+    background-color: #dde3e3;  /* same pale‑teal you wanted */
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    max-height: 500px;          /* big enough for your links */
+    opacity: 1;
+  }
+  .nav-menu.active li {
+    margin: 0.5rem 0;
+    text-align: left;
+  }
+  .nav-menu.active a {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+
+  /* 3) Ensure clicking “Menu” pushes content down, not overlay */
+  .header_inner {
+    flex-wrap: wrap; /* so the dropdown pushes below the header */
+  }
+  .nav-menu.active {
+    position: static;
+  }
+
+  /* 4) Enlarge your logo on all these devices */
+  .header_logo img,
+  .custom-logo-link img {
+    max-height: 80px;
+    width: auto;
   }
 }

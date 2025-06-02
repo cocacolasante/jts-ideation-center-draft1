@@ -5,152 +5,51 @@ Template Name: Novel Prototyping
 get_header(); ?>
 
 <style>
+  /* (All your existing CSS is unchanged and preserved) */
   .module-video video { width: 100%; height: auto; max-width: 100%; }
-
-  /* Overall page padding */
-  .novel-prototyping-container { 
-    
-    padding: 0 1.5rem; 
-    background-color: #9AAFC5;
-  }
-
-  /* Process section styling */
+  .novel-prototyping-container { padding: 0 1.5rem; background-color: #9AAFC5; }
   .process-title { font-size: 1.75rem; font-weight: 600; margin-bottom: 1rem; text-align: center; }
-  .novel-prototyping-header-wrapper {
-    width: 80%;
-    margin: 0 auto;
-    border: 5px solid #C8AE7D;
-    border-radius: 0.5rem;
-    background-color: #fff;
-    padding: 2rem;
-    margin-bottom: 2.5rem;
-  }
-  .process-image {
-    width: 100%;
-    
-    min-height:50vh;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    margin-bottom: 0.25rem; /* reduced space */
-  }
-  .novel-prototyping-header {
-    background-size: cover;
-    background-position: center;
-    border-radius: 0.5rem;
-    height: 200px;
-    margin-bottom: 1rem;
-  }
+  .novel-prototyping-header-wrapper { width: 80%; margin: 0 auto; border: 5px solid #C8AE7D; border-radius: 0.5rem; background-color: #fff; padding: 2rem; margin-bottom: 2.5rem; }
+  .process-image { width: 100%; min-height:50vh; object-fit: cover; border-radius: 0.5rem; margin-bottom: 0.25rem; }
+  .novel-prototyping-header { background-size: cover; background-position: center; border-radius: 0.5rem; height: 200px; margin-bottom: 1rem; }
   .intro-text { padding: 1rem; }
-
-  /* Modules styling */
-  .novel-prototyping-modules .module {
-    width: 80%;
-    margin: 0 auto;
-    border: 5px solid #C8AE7D;
-    border-radius: 0.5rem;
-    background-color: #fff;
-    padding: 2rem;
-    margin-bottom: 2.5rem;
-  }
+  .novel-prototyping-modules .module { width: 80%; margin: 0 auto; border: 5px solid #C8AE7D; border-radius: 0.5rem; background-color: #fff; padding: 2rem; margin-bottom: 2.5rem; }
   .novel-prototyping-modules .module + .module { margin-top: 2.5rem; }
   .module-title { font-size: 1.75rem; margin-bottom: 1.25rem; }
-  .module-description,
-  .module-video,
-  .module-assignment { margin-bottom: 1.25rem; }
-
-  /* Office hours & survey */
-  .office-hours,
-  .survey {
-    width: 80%;
-    margin: 0 auto;
-    border: 5px solid #C8AE7D;
-    border-radius: 0.5rem;
-    background-color: #fff;
-    padding: 2rem;
-    margin-bottom: 2.5rem;
-  }
+  .module-description, .module-video, .module-assignment { margin-bottom: 1.25rem; }
+  .office-hours, .survey { width: 80%; margin: 0 auto; border: 5px solid #C8AE7D; border-radius: 0.5rem; background-color: #fff; padding: 2rem; margin-bottom: 2.5rem; }
   .survey label { font-weight: 600; }
-/* Ending CTA – match modules & header wrapper */
-.ending-cta {
-  width: 80%;
-  margin: 0 auto 2.5rem;          /* centered, same bottom gap */
-  border: 5px solid #C8AE7D;      /* same gold border */
-  border-radius: 0.5rem;          
-  background-color: #fff;         
-  padding: 2rem;                  /* same padding as modules */
-  box-shadow: none;               /* remove the old shadow */
-  text-align: center;             
-  box-sizing: border-box;
-}
+  .ending-cta { width: 80%; margin: 0 auto 2.5rem; border: 5px solid #C8AE7D; border-radius: 0.5rem; background-color: #fff; padding: 2rem; box-shadow: none; text-align: center; box-sizing: border-box; }
+  .ending-cta-heading { font-size: 1.75rem; font-weight: 600; margin-bottom: 1.25rem; color: #374151; line-height: 1.2; }
+  .ending-cta-button { display: inline-block; background: linear-gradient(to bottom, #06bdc0 5%, #06bdc0 100%); color: #fff; padding: 14px 28px; font-size: 1rem; font-weight: 600; border-radius: 5px; text-decoration: none; transition: opacity 0.2s ease; }
+  .ending-cta-button:hover { opacity: 0.9; }
 
-/* Heading – match .module-title */
-.ending-cta-heading {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 1.25rem;         /* same spacing as module titles */
-  color: #374151;
-  line-height: 1.2;
-}
-
-/* Button – you can keep your existing styling, or bump it up visually */
-.ending-cta-button {
-  display: inline-block;
-  background: linear-gradient(to bottom, #06bdc0 5%, #06bdc0 100%);
-  color: #fff;
-  padding: 14px 28px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-.ending-cta-button:hover {
-  opacity: 0.9;
-}
-
-/* Extra‑small devices (portrait phones, <576px) */
-@media (max-width: 575.98px) {
-  .process-image {
-    object-fit: cover;
-    object-position: right center;
+  @media (max-width: 575.98px) {
+    .process-image { object-fit: cover; object-position: right center; }
   }
-}
-
-/* Small devices (landscape phones, ≥576px and <768px) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .process-image {
-    object-fit: cover;
-    object-position: right center;
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .process-image { object-fit: cover; object-position: right center; }
   }
-}
-
-/* Medium devices (tablets, ≥768px and <992px) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .process-image {
-    object-fit: cover;
-    object-position: right center;
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .process-image { object-fit: cover; object-position: right center; }
   }
-}
-
-/* Large devices (desktops, ≥992px and <1200px) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .process-image {
-    object-fit: cover;
-    object-position: center center; /* switch back to center on larger */
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    .process-image { object-fit: cover; object-position: center center; }
   }
-}
-
-/* Extra‑large devices (large desktops, ≥1200px) */
-@media (min-width: 1200px) {
-  .process-image {
-    object-fit: cover;
-    object-position: center center;
+  @media (min-width: 1200px) {
+    .process-image { object-fit: cover; object-position: center center; }
   }
-}
-
-
-
 </style>
+
+<?php
+// Allow plugins like Content Control to hook into the_content if needed
+echo apply_filters('the_content', '');
+
+// Password check
+if ( post_password_required() ) {
+  echo get_the_password_form();
+} else {
+?>
 
 <div class="novel-prototyping-container">
   <h2 class="process-title">The Narrative Prototyping Process</h2>
@@ -180,35 +79,23 @@ get_header(); ?>
         <div class="module-assignment"><strong>Assignment:</strong> <?php the_field("np1_mod{$i}_assignment"); ?></div>
       </div>
     <?php endfor; ?>
-
   </div>
 
   <div class="ending-cta">
     <?php
-      // grab the ACF values
       $cta_heading = get_field('ending_cta_heading');
       $cta_link    = get_field('ending_cta_button_link');
       $cta_text    = get_field('ending_cta_button_text');
     ?>
-
     <?php if( $cta_heading ): ?>
-      <h3 class="ending-cta-heading">
-        <?php echo esc_html( $cta_heading ); ?>
-      </h3>
+      <h3 class="ending-cta-heading"><?php echo esc_html( $cta_heading ); ?></h3>
     <?php endif; ?>
-
     <?php if( $cta_link && $cta_text ): ?>
-      <a
-        href="<?php echo esc_url( $cta_link ); ?>"
-        class="calltoactionbtn"
-      >
-        <?php echo esc_html( $cta_text ); ?>
-      </a>
+      <a href="<?php echo esc_url( $cta_link ); ?>" class="calltoactionbtn"><?php echo esc_html( $cta_text ); ?></a>
     <?php endif; ?>
   </div>
-
-
-  
 </div>
+
+<?php } // end password check ?>
 
 <?php get_footer(); ?>

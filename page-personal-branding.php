@@ -297,7 +297,7 @@ get_header();
   bottom: 0;
   left: 50%;                  /* center of the container */
   width: 8px;                 /* your specified thickness */
-  background-color: #FACC15;  /* the golden yellow */
+  background-color: #C8AE7D;  /* the golden yellow */
   transform: translateX(-50%);/* ensure the line is dead‑center */
   z-index: 5;               /* behind your column content */
 }

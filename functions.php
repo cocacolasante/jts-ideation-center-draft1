@@ -14,8 +14,9 @@ add_theme_support( 'custom-logo', [
 add_action( 'after_setup_theme', 'jts_theme_setup' );
 
 function jts_enqueue_scripts() {
-    wp_enqueue_style( 'jts-style', get_stylesheet_uri() );
-    wp_enqueue_script( 'jts-main', get_template_directory_uri() . '/js/scripts.js', [], false, true );
+  // this is your global style.css
+  wp_enqueue_style( 'jts-style', get_stylesheet_uri() );
+  // other scripts…
 }
 add_action( 'wp_enqueue_scripts', 'jts_enqueue_scripts' );
 
