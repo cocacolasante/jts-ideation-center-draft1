@@ -13,6 +13,7 @@ add_theme_support( 'custom-logo', [
 }
 add_action( 'after_setup_theme', 'jts_theme_setup' );
 
+
 function jts_enqueue_scripts() {
   // this is your global style.css
   wp_enqueue_style( 'jts-style', get_stylesheet_uri() );

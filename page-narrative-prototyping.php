@@ -68,18 +68,40 @@ if ( post_password_required() ) {
       <?php endif; ?>
   </div>
 
-  <div class="novel-prototyping-modules">
-    <?php for ($i = 1; $i <= 5; $i++): ?>
-      <div class="module">
-        <h2 class="module-title"><?php the_field("np1_mod{$i}_title"); ?></h2>
-        <div class="module-video"><?php $video_url = get_field("np1_mod{$i}_video"); if ($video_url): ?>
-            <video controls class="w-full rounded"><source src="<?php echo esc_url($video_url); ?>" type="video/mp4">Your browser does not support the video tag.</video>
-          <?php endif; ?></div>
-        <div class="module-description"><?php the_field("np1_mod{$i}_description"); ?></div>
-        <div class="module-assignment"><strong>Assignment:</strong> <?php the_field("np1_mod{$i}_assignment"); ?></div>
+<div class="novel-prototyping-modules">
+  <?php for ($i = 1; $i <= 5; $i++): ?>
+    <div class="module">
+      <h2 class="module-title"><?php the_field("np1_mod{$i}_title"); ?></h2>
+      <div class="module-video">
+        <?php $video_url = get_field("np1_mod{$i}_video"); if ($video_url): ?>
+          <video controls class="w-full rounded">
+            <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        <?php endif; ?>
       </div>
-    <?php endfor; ?>
-  </div>
+      <div class="module-description"><?php the_field("np1_mod{$i}_description"); ?></div>
+      <div class="module-assignment"><strong>Assignment:</strong> <?php the_field("np1_mod{$i}_assignment"); ?></div>
+
+      <?php
+        $resources = [];
+
+        $res1 = get_field("np1_mod{$i}_resource1");
+        $res2 = get_field("np1_mod{$i}_resource2");
+        $res3 = get_field("np1_mod{$i}_resource3");
+
+        if ($res1) $resources[] = '<a href="' . esc_url($res1) . '" target="_blank" rel="noopener noreferrer">' . esc_html($res1) . '</a>';
+        if ($res2) $resources[] = '<a href="' . esc_url($res2) . '" target="_blank" rel="noopener noreferrer">' . esc_html($res2) . '</a>';
+        if ($res3) $resources[] = '<a href="' . esc_url($res3) . '" target="_blank" rel="noopener noreferrer">' . esc_html($res3) . '</a>';
+
+        if (!empty($resources)) {
+          echo '<div class="module-resources"><strong>Resources:</strong> ' . implode(', ', $resources) . '</div>';
+        }
+      ?>
+    </div>
+  <?php endfor; ?>
+</div>
+
 
   <div class="ending-cta">
     <?php
