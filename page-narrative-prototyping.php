@@ -5,12 +5,41 @@ Template Name: Novel Prototyping
 get_header(); ?>
 
 <style>
-  /* (All your existing CSS is unchanged and preserved) */
-  .module-video video { width: 100%; height: auto; max-width: 100%; }
+  .module-video {
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .module-video video {
+    width: 100%;
+    height: auto;
+    max-width: 720px;
+    max-height: 400px;
+    border-radius: 0.5rem;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    
+  }
+
+  /* responsive tweaks */
+  @media (max-width: 991.98px) {
+    .module-video video {
+      max-width: 100%;
+      max-height: 300px;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    .module-video video {
+      max-width: 100%;
+      max-height: 240px;
+    }
+  }
+
   .novel-prototyping-container { padding: 0 1.5rem; background-color: #9AAFC5; }
   .process-title { font-size: 1.75rem; font-weight: 600; margin-bottom: 1rem; text-align: center; }
   .novel-prototyping-header-wrapper { width: 80%; margin: 0 auto; border: 5px solid #C8AE7D; border-radius: 0.5rem; background-color: #fff; padding: 2rem; margin-bottom: 2.5rem; }
-  .process-image { width: 100%; min-height:50vh; object-fit: cover; border-radius: 0.5rem; margin-bottom: 0.25rem; }
+  .process-image { width: 100%; min-height: 50vh; object-fit: cover; border-radius: 0.5rem; margin-bottom: 0.25rem; }
   .novel-prototyping-header { background-size: cover; background-position: center; border-radius: 0.5rem; height: 200px; margin-bottom: 1rem; }
   .intro-text { padding: 1rem; }
   .novel-prototyping-modules .module { width: 80%; margin: 0 auto; border: 5px solid #C8AE7D; border-radius: 0.5rem; background-color: #fff; padding: 2rem; margin-bottom: 2.5rem; }
@@ -42,10 +71,8 @@ get_header(); ?>
 </style>
 
 <?php
-// Allow plugins like Content Control to hook into the_content if needed
 echo apply_filters('the_content', '');
 
-// Password check
 if ( post_password_required() ) {
   echo get_the_password_form();
 } else {
@@ -62,46 +89,49 @@ if ( post_password_required() ) {
       <?php the_field('np1_intro_text'); ?>
     </div>
     <?php if( $url = get_field('workbook_download') ): ?>
-        <a href="<?php echo esc_url( $url ); ?>" download>
-          Download Workbook
-        </a>
-      <?php endif; ?>
+      <a href="<?php echo esc_url( $url ); ?>" download>
+        Download Workbook
+      </a>
+    <?php endif; ?>
   </div>
+  
 
-<div class="novel-prototyping-modules">
-  <?php for ($i = 1; $i <= 5; $i++): ?>
-    <div class="module">
-      <h2 class="module-title"><?php the_field("np1_mod{$i}_title"); ?></h2>
-      <div class="module-video">
-        <?php $video_url = get_field("np1_mod{$i}_video"); if ($video_url): ?>
-          <video controls class="w-full rounded">
-            <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        <?php endif; ?>
+  <div class="novel-prototyping-modules">
+    <?php for ($i = 1; $i <= 5; $i++): ?>
+      <div class="module">
+        <h2 class="module-title"><?php the_field("np1_mod{$i}_title"); ?></h2>
+        <div class="module-video">
+          <?php $video_url = get_field("np1_mod{$i}_video"); if ($video_url): ?>
+            <?php
+              $poster = get_field("np1_mod{$i}_poster"); // Add this custom ACF field for poster image
+            ?>
+            <video controls <?php if ($poster) echo 'poster="' . esc_url($poster) . '"'; ?>>
+              <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          <?php endif; ?>
+        </div>
+        <div class="module-description"><?php the_field("np1_mod{$i}_description"); ?></div>
+        <div class="module-assignment"><strong>Assignment:</strong> <?php the_field("np1_mod{$i}_assignment"); ?></div>
+
+        <?php
+          $resources = [];
+
+          $res1 = get_field("np1_mod{$i}_resource1");
+          $res2 = get_field("np1_mod{$i}_resource2");
+          $res3 = get_field("np1_mod{$i}_resource3");
+
+          if ($res1) $resources[] = '<a href="' . esc_url($res1) . '" target="_blank" rel="noopener noreferrer">' . esc_html($res1) . '</a>';
+          if ($res2) $resources[] = '<a href="' . esc_url($res2) . '" target="_blank" rel="noopener noreferrer">' . esc_html($res2) . '</a>';
+          if ($res3) $resources[] = '<a href="' . esc_url($res3) . '" target="_blank" rel="noopener noreferrer">' . esc_html($res3) . '</a>';
+
+          if (!empty($resources)) {
+            echo '<div class="module-resources"><strong>Resources:</strong> ' . implode(', ', $resources) . '</div>';
+          }
+        ?>
       </div>
-      <div class="module-description"><?php the_field("np1_mod{$i}_description"); ?></div>
-      <div class="module-assignment"><strong>Assignment:</strong> <?php the_field("np1_mod{$i}_assignment"); ?></div>
-
-      <?php
-        $resources = [];
-
-        $res1 = get_field("np1_mod{$i}_resource1");
-        $res2 = get_field("np1_mod{$i}_resource2");
-        $res3 = get_field("np1_mod{$i}_resource3");
-
-        if ($res1) $resources[] = '<a href="' . esc_url($res1) . '" target="_blank" rel="noopener noreferrer">' . esc_html($res1) . '</a>';
-        if ($res2) $resources[] = '<a href="' . esc_url($res2) . '" target="_blank" rel="noopener noreferrer">' . esc_html($res2) . '</a>';
-        if ($res3) $resources[] = '<a href="' . esc_url($res3) . '" target="_blank" rel="noopener noreferrer">' . esc_html($res3) . '</a>';
-
-        if (!empty($resources)) {
-          echo '<div class="module-resources"><strong>Resources:</strong> ' . implode(', ', $resources) . '</div>';
-        }
-      ?>
-    </div>
-  <?php endfor; ?>
-</div>
-
+    <?php endfor; ?>
+  </div>
 
   <div class="ending-cta">
     <?php
