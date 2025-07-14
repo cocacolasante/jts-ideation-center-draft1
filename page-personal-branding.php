@@ -565,7 +565,7 @@ get_header();
           <video
               controls
               autoplay
-              muted
+              
             
               playsinline 
               class="carousel-item-video"

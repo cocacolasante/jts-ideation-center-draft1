@@ -211,8 +211,47 @@ endif; ?>
 
 
     <?php $cta_bg = function_exists('get_field') ? get_field('cta_background_image') : false; ?>
+  <section class="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonial-carousel swiper">
+      <div class="swiper-wrapper">
 
-<section class="testimonials">
+        <!-- Testimonial 1 -->
+        <div class="swiper-slide testimonial-card">
+          <p class="testimonial-text">"My expectations were that you'd help me produce a memoir... You've helped me contextualize entire chapters of my life into a narrative that brings me some really warm feelings and comfort."</p>
+          <p class="testimonial-author">Ollie Brooke</p>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="swiper-slide testimonial-card">
+          <p class="testimonial-text">"Julia’s workshop transformed how I see personal storytelling... Even with my background in fundraising, I walked away with new tools."</p>
+          <p class="testimonial-author">Melissa Riley</p>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="swiper-slide testimonial-card">
+          <p class="testimonial-text">"Julia Taus has writing chops... If you plan to write a fictional book about brave people who lived their destiny, hire Julia Taus as your writing coach."</p>
+          <p class="testimonial-author">Patrick Tinney</p>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="swiper-slide testimonial-card">
+          <p class="testimonial-text">"Anyone who engages openly in this workshop will come away empowered... What you create for yourself will be something you can have in your toolbox in any professional setting."</p>
+          <p class="testimonial-author">Ben Swofford</p>
+        </div>
+
+      </div>
+
+      <!-- Swiper navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+<!-- <section class="testimonials">
   <h2>Testimonials</h2>
   <div class="testimonial-cards">
     <div class="testimonial-card">
@@ -261,10 +300,11 @@ endif; ?>
     </div>
     <div class="testimonial-card">
       <p class="testimonial-text">“Julia is a powerhouse creative whose ideas are matched only by her insatiable drive to bring them
-to life. Her depth of knowledge around the power of story and the underlying structures that help us
-develop and tell them is potent. Her generous spirit and collaborative approach provide a sanctuary
-for like-minded writers and creators to connect and thrive. Creator, collaborator, doer - Julia does the
-reps.”</p>
+        to life. Her depth of knowledge around the power of story and the underlying structures that help us
+        develop and tell them is potent. Her generous spirit and collaborative approach provide a sanctuary
+        for like-minded writers and creators to connect and thrive. Creator, collaborator, doer - Julia does the
+        reps.”
+        </p>
       <p class="testimonial-author">Mo MacRae</p>
     </div>
     <div class="testimonial-card">
@@ -285,7 +325,7 @@ reps.”</p>
       <p class="testimonial-author">Teirra Renee</p>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="outterCall" id="contact">
         <div class="callToAction">
