@@ -218,26 +218,26 @@ endif; ?>
 
         <!-- Testimonial 1 -->
         <div class="swiper-slide testimonial-card">
-          <p class="testimonial-text">"My expectations were that you'd help me produce a memoir... You've helped me contextualize entire chapters of my life into a narrative that brings me some really warm feelings and comfort."</p>
-          <p class="testimonial-author">Ollie Brooke</p>
+          <p class="testimonial-text">"Julia’s workshop transformed how I see personal storytelling. Even with my background in fundraising, I walked away with new tools to craft and share my story with greater impact. Julia isn’t just creative—she’s a masterful instructor who makes storytelling both accessible and powerful."</p>
+          <p class="testimonial-author">Melissa Riley</p>
         </div>
 
         <!-- Testimonial 2 -->
         <div class="swiper-slide testimonial-card">
-          <p class="testimonial-text">"Julia’s workshop transformed how I see personal storytelling... Even with my background in fundraising, I walked away with new tools."</p>
-          <p class="testimonial-author">Melissa Riley</p>
+          <p class="testimonial-text">“Julia has been incredibly helpful in giving me a fresh perspective on my work- she is very perceptive, insightful, and a great source of ideas and encouragement.”</p>
+          <p class="testimonial-author">Aryajit Heppell</p>
         </div>
 
         <!-- Testimonial 3 -->
         <div class="swiper-slide testimonial-card">
-          <p class="testimonial-text">"Julia Taus has writing chops... If you plan to write a fictional book about brave people who lived their destiny, hire Julia Taus as your writing coach."</p>
-          <p class="testimonial-author">Patrick Tinney</p>
+          <p class="testimonial-text">"I recommend to you all that engaging with Julia will be a big positive for you. Her energy and positivity are boundless, and a worthwhile journey to be part of. Help her, learn from her and enjoy the wave of excitement and output."</p>
+          <p class="testimonial-author">Ross McCreath</p>
         </div>
 
         <!-- Testimonial 4 -->
         <div class="swiper-slide testimonial-card">
-          <p class="testimonial-text">"Anyone who engages openly in this workshop will come away empowered... What you create for yourself will be something you can have in your toolbox in any professional setting."</p>
-          <p class="testimonial-author">Ben Swofford</p>
+          <p class="testimonial-text">“Julia is an excellent writer and communicator and an insightful collaborator.”</p>
+          <p class="testimonial-author">Christopher Munden</p>
         </div>
 
       </div>

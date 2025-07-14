@@ -565,8 +565,7 @@ get_header();
           <video
               controls
               autoplay
-              
-            
+              mute
               playsinline 
               class="carousel-item-video"
             <source src="<?php echo esc_url( $item['url'] ); ?>"
@@ -601,6 +600,7 @@ get_header();
     <a href="<?php echo esc_url( home_url('/contact-us/') ); ?>" class="calltoactionbtn">Let's Chat Today</a>
   </div>
 </aside>
+
 <script>
 (function(){
   const inner = document.querySelector('.carousel-inner');
