@@ -613,7 +613,7 @@ input[type="button"] {
 }
 .testimonial-text {
   font-style: italic;
-  margin-bottom: 15px;
+  margin: 15px;
   flex-grow: 1;
 }
 .testimonial-author {
@@ -648,13 +648,13 @@ input[type="button"] {
 }
 .testimonial-text {
   font-style: italic;
-  margin-bottom: 15px;
+  margin: 15px;
   flex-grow: 1;
 }
 .testimonial-author {
   font-weight: bold;
   text-align: right;
-  margin-top: 10px;
+  margin: 15px;
 }
 
 /* ————————— Testimonials Section ————————— */
@@ -682,22 +682,19 @@ input[type="button"] {
 }
 .testimonial-text {
   font-style: italic;
-  margin-bottom: 15px;
+  margin: 15px;
+  flex-grow: 1;
 }
 .testimonial-author {
   font-weight: bold;
   text-align: right;
-  margin-top: 10px;
+  margin: 15px;
 }
-
 /* Restore testimonial card hover effect */
 .testimonials .testimonial-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.testimonials .testimonial-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
+
 
 /* Contact form styling */
 .contact-page { min-width: 40%; margin: 1rem auto; padding: 0 1rem; }
@@ -1542,7 +1539,7 @@ body {
 
 
 .testimonial-carousel {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   padding-bottom: 40px;
 	height: 30vh;

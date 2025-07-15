@@ -4,7 +4,6 @@
  * Template Post Type: page
  */
 
-echo "<!-- LOADED What Is Narrative Prototyping template -->";
 
 get_header(); ?>
 
@@ -189,27 +188,6 @@ get_header(); ?>
         </div>
       </div>
   <?php endif; ?>
-
-  <!-- Call To Action -->
-   
-  <?php if ( $cta = get_field('cta_text') ): ?>
-  <div class="cta">
-    
-    <?php if ( $link = get_field('cta_button_link') ): ?>
-      <div class="button-box">
-        <p><?php echo wp_kses_post( nl2br( $cta ) ); ?></p>
-       <?php
-          // Grab ACF values (with a fallback URL if you like)
-          $cta_link = get_field('cta_button_link') ?: '/narrative-prototyping';
-          $cta_text = get_field('cta_button_text') ?: 'Get Started Today';
-        ?>
-        <a href="<?php echo esc_url( $cta_link ); ?>" class="button">
-          <?php echo esc_html( $cta_text ); ?>
-        </a>
-      </div>
-    <?php endif; ?>
-  </div>
-<?php endif; ?>
 <section class="testimonials">
     <h2>Testimonials</h2>
     <div class="testimonial-carousel swiper">
@@ -248,7 +226,28 @@ get_header(); ?>
       <!-- Pagination -->
       <div class="swiper-pagination"></div>
     </div>
-  </section>
+</section>
+  <!-- Call To Action -->
+   
+  <?php if ( $cta = get_field('cta_text') ): ?>
+  <div class="cta">
+    
+    <?php if ( $link = get_field('cta_button_link') ): ?>
+      <div class="button-box">
+        <p><?php echo wp_kses_post( nl2br( $cta ) ); ?></p>
+       <?php
+          // Grab ACF values (with a fallback URL if you like)
+          $cta_link = get_field('cta_button_link') ?: '/narrative-prototyping';
+          $cta_text = get_field('cta_button_text') ?: 'Get Started Today';
+        ?>
+        <a href="<?php echo esc_url( $cta_link ); ?>" class="button">
+          <?php echo esc_html( $cta_text ); ?>
+        </a>
+      </div>
+    <?php endif; ?>
+  </div>
+<?php endif; ?>
+
 
 </div>
 <!-- Community Popup HTML -->

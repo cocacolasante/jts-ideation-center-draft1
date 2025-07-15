@@ -528,111 +528,116 @@ get_header();
     </section>
   </main>
 
-<aside class="cta-form">
-  <!-- Right column top card -->
-    <div class="dfy-card">
-      <div class="dfy-bar"></div>
-      <div class="dfy-content">Done‑For‑You Brand Storytelling</div>
+  <aside class="cta-form">
+    <!-- Right column top card -->
+      <div class="dfy-card">
+        <div class="dfy-bar"></div>
+        <div class="dfy-content">Done‑For‑You Brand Storytelling</div>
+      </div>
+
+    <p>Your story — where you came from, the lessons and blessings that shaped you, and your vision for what’s next — is your most powerful asset.<br>
+    Believe it. Invest in it.<br>
+    Together we’ll springboard your ambition to be professionally seen and respected by creating content that leverages your worth.</p>
+
+      <?php
+        // grab your three videos
+        $videos = [
+          get_field('dfy_video_1'),
+          get_field('dfy_video_2'),
+          get_field('dfy_video_3'),
+          get_field('dfy_video_4'),
+        ];
+        // grab your three pictures
+        $pictures = [
+          get_field('dfy_pic_1'),
+          get_field('dfy_pic_2'),
+          get_field('dfy_pic_3'),
+        ];
+        // merge & filter out any empty values
+        $media = array_filter( array_merge( $videos, $pictures ) );
+      ?>
+    <div class="media-carousel">
+      <div class="carousel-inner">
+        <?php foreach( $media as $item ):
+          if ( is_array($item) && ! empty($item['url']) && ! empty($item['mime_type']) ): ?>
+          <div class="carousel-item">
+            <?php if ( strpos( $item['mime_type'], 'video' ) === 0 ): ?>
+              <video
+                  controls
+                  autoplay
+                  mute
+                  playsinline 
+                  class="carousel-item-video"
+                <source src="<?php echo esc_url( $item['url'] ); ?>"
+                        type="<?php echo esc_attr( $item['mime_type'] ); ?>">
+                Your browser doesn’t support HTML5 video.
+              </video>
+            <?php elseif ( strpos( $item['mime_type'], 'image' ) === 0 ): ?>
+              <img
+                src="<?php echo esc_url( $item['url'] ); ?>"
+                alt="<?php echo esc_attr( $item['alt'] ?? 'Carousel image' ); ?>"
+              />
+            <?php endif; ?>
+          </div>
+        <?php endif; endforeach; ?>
+      </div>
+      <button class="carousel-nav carousel-prev" aria-label="Previous slide">‹</button>
+      <button class="carousel-nav carousel-next" aria-label="Next slide">›</button>
     </div>
 
-  <p>Your story — where you came from, the lessons and blessings that shaped you, and your vision for what’s next — is your most powerful asset.<br>
-  Believe it. Invest in it.<br>
-  Together we’ll springboard your ambition to be professionally seen and respected by creating content that leverages your worth.</p>
 
-<?php
-  // grab your three videos
-  $videos = [
-    get_field('dfy_video_1'),
-    get_field('dfy_video_2'),
-    get_field('dfy_video_3'),
-    get_field('dfy_video_4'),
-  ];
-  // grab your three pictures
-  $pictures = [
-    get_field('dfy_pic_1'),
-    get_field('dfy_pic_2'),
-    get_field('dfy_pic_3'),
-  ];
-  // merge & filter out any empty values
-  $media = array_filter( array_merge( $videos, $pictures ) );
-?>
-<div class="media-carousel">
-  <div class="carousel-inner">
-    <?php foreach( $media as $item ):
-      if ( is_array($item) && ! empty($item['url']) && ! empty($item['mime_type']) ): ?>
-      <div class="carousel-item">
-        <?php if ( strpos( $item['mime_type'], 'video' ) === 0 ): ?>
-          <video
-              controls
-              autoplay
-              mute
-              playsinline 
-              class="carousel-item-video"
-            <source src="<?php echo esc_url( $item['url'] ); ?>"
-                    type="<?php echo esc_attr( $item['mime_type'] ); ?>">
-            Your browser doesn’t support HTML5 video.
-          </video>
-        <?php elseif ( strpos( $item['mime_type'], 'image' ) === 0 ): ?>
-          <img
-            src="<?php echo esc_url( $item['url'] ); ?>"
-            alt="<?php echo esc_attr( $item['alt'] ?? 'Carousel image' ); ?>"
-          />
-        <?php endif; ?>
-      </div>
-    <?php endif; endforeach; ?>
-  </div>
-  <button class="carousel-nav carousel-prev" aria-label="Previous slide">‹</button>
-  <button class="carousel-nav carousel-next" aria-label="Next slide">›</button>
+
+    <h4>Three Month Content Package For $3000 That Includes ...</h4>
+    <ul class="package-list">
+      <li>✔️Recorded Interview</li>
+      <li>✔️Personal Brand Origin Story Article</li>
+      <li>✔️1‑On‑1 Content Strategy Sessions</li>
+      <li>✔️26 Original Content Assets (Includes Video & Signature Thumbnails)</li>
+      <li>✔️Personal Development Confidence Training</li>
+    </ul>
+
+    <div class="cta-wrapper">
+      <a href="<?php echo esc_url( home_url('/contact-us/') ); ?>" class="calltoactionbtn">Let's Chat Today</a>
+    </div>
+  </aside>
 </div>
+<section class="testimonials">
+  <h2>Testimonials</h2>
+  <div class="testimonial-carousel swiper">
+    <div class="swiper-wrapper">
 
+      <!-- Testimonial 1 -->
+      <div class="swiper-slide testimonial-card">
+        <p class="testimonial-text">"Julia’s workshop transformed how I see personal storytelling. Even with my background in fundraising, I walked away with new tools to craft and share my story with greater impact. Julia isn’t just creative—she’s a masterful instructor who makes storytelling both accessible and powerful."</p>
+        <p class="testimonial-author">Melissa Riley</p>
+      </div>
 
+      <!-- Testimonial 2 -->
+      <div class="swiper-slide testimonial-card">
+        <p class="testimonial-text">“Julia has been incredibly helpful in giving me a fresh perspective on my work- she is very perceptive, insightful, and a great source of ideas and encouragement.”</p>
+        <p class="testimonial-author">Aryajit Heppell</p>
+      </div>
 
-  <h4>Three Month Content Package For $3000 That Includes ...</h4>
-  <ul class="package-list">
-    <li>✔️Recorded Interview</li>
-    <li>✔️Personal Brand Origin Story Article</li>
-    <li>✔️1‑On‑1 Content Strategy Sessions</li>
-    <li>✔️26 Original Content Assets (Includes Video & Signature Thumbnails)</li>
-    <li>✔️Personal Development Confidence Training</li>
-  </ul>
+      <!-- Testimonial 3 -->
+      <div class="swiper-slide testimonial-card">
+        <p class="testimonial-text">"I recommend to you all that engaging with Julia will be a big positive for you. Her energy and positivity are boundless, and a worthwhile journey to be part of. Help her, learn from her and enjoy the wave of excitement and output."</p>
+        <p class="testimonial-author">Ross McCreath</p>
+      </div>
 
-  <div class="cta-wrapper">
-    <a href="<?php echo esc_url( home_url('/contact-us/') ); ?>" class="calltoactionbtn">Let's Chat Today</a>
+      <!-- Testimonial 4 -->
+      <div class="swiper-slide testimonial-card">
+        <p class="testimonial-text">“Julia is an excellent writer and communicator and an insightful collaborator.”</p>
+        <p class="testimonial-author">Christopher Munden</p>
+      </div>
+
+    </div>
+
+    <!-- Swiper navigation buttons -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
   </div>
-</aside>
-
-<script>
-(function(){
-  const inner = document.querySelector('.carousel-inner');
-  const items = document.querySelectorAll('.carousel-item');
-  const prev = document.querySelector('.carousel-prev');
-  const next = document.querySelector('.carousel-next');
-  let index = 0;
-
-  function update() {
-    inner.style.transform = `translateX(-${index * 100}%)`;
-  }
-
-  prev.addEventListener('click', () => {
-    index = (index - 1 + items.length) % items.length;
-    update();
-  });
-
-  next.addEventListener('click', () => {
-    index = (index + 1) % items.length;
-    update();
-  });
-})();
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  const toggle = document.getElementById('menu-toggle');
-  const menu   = document.getElementById('primary-menu');
-  if (!toggle || !menu) return;
-  toggle.addEventListener('click', function(){
-    const expanded = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', String(!expanded));
-    menu.classList.toggle('active');
-  });
-});
-</script>
+</section>
+<?php get_footer(); ?>
