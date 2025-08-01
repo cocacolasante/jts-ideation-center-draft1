@@ -189,32 +189,32 @@ get_header(); ?>
       </div>
   <?php endif; ?>
 <section class="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonial-carousel swiper">
+  <div class="testimonial-carousel swiper">
+      <h2>Testimonials</h2>
       <div class="swiper-wrapper">
 
         <!-- Testimonial 1 -->
         <div class="swiper-slide testimonial-card">
-          <p class="testimonial-text">"Julia’s workshop transformed how I see personal storytelling. Even with my background in fundraising, I walked away with new tools to craft and share my story with greater impact. Julia isn’t just creative—she’s a masterful instructor who makes storytelling both accessible and powerful."</p>
-          <p class="testimonial-author">Melissa Riley</p>
+          <p class="testimonial-text">“My expectations were that you'd help me produce a memoir of the ilk that I wished I had from my great-great-grandfather. Beyond that, I really had no idea what to expect. What I ended up with was far more profound and much more impactful on me than I would have imagined."</p>
+          <p class="testimonial-author">Ollie Brooke</p>
         </div>
 
         <!-- Testimonial 2 -->
         <div class="swiper-slide testimonial-card">
-          <p class="testimonial-text">“Julia has been incredibly helpful in giving me a fresh perspective on my work- she is very perceptive, insightful, and a great source of ideas and encouragement.”</p>
-          <p class="testimonial-author">Aryajit Heppell</p>
+          <p class="testimonial-text">"Embracing positive risk with creative content creation is a tough needle to thread. Julia Taus has these kinds of writing chops.”</p>
+          <p class="testimonial-author">Patrick Tinney</p>
         </div>
 
         <!-- Testimonial 3 -->
         <div class="swiper-slide testimonial-card">
-          <p class="testimonial-text">"I recommend to you all that engaging with Julia will be a big positive for you. Her energy and positivity are boundless, and a worthwhile journey to be part of. Help her, learn from her and enjoy the wave of excitement and output."</p>
-          <p class="testimonial-author">Ross McCreath</p>
+          <p class="testimonial-text">“Be sure to contact this powerhouse. The definition of a Hero’s Story, if you want yours articulated, get in touch ASAP”</p>
+          <p class="testimonial-author">Cullen Haynes</p>
         </div>
 
         <!-- Testimonial 4 -->
         <div class="swiper-slide testimonial-card">
-          <p class="testimonial-text">“Julia is an excellent writer and communicator and an insightful collaborator.”</p>
-          <p class="testimonial-author">Christopher Munden</p>
+          <p class="testimonial-text">“Julia’s generous spirit and collaborative approach provide a sanctuary for like-minded writers and creators to connect and thrive.”</p>
+          <p class="testimonial-author">Mo MacRae</p>
         </div>
 
       </div>

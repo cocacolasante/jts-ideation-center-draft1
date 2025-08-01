@@ -211,45 +211,43 @@ endif; ?>
 
 
     <?php $cta_bg = function_exists('get_field') ? get_field('cta_background_image') : false; ?>
-  <section class="testimonials">
+<section class="testimonials">
+  <div class="testimonial-carousel swiper">
     <h2>Testimonials</h2>
-    <div class="testimonial-carousel swiper">
-      <div class="swiper-wrapper">
-
-        <!-- Testimonial 1 -->
-        <div class="swiper-slide testimonial-card">
-          <p class="testimonial-text">"Julia’s workshop transformed how I see personal storytelling. Even with my background in fundraising, I walked away with new tools to craft and share my story with greater impact. Julia isn’t just creative—she’s a masterful instructor who makes storytelling both accessible and powerful."</p>
-          <p class="testimonial-author">Melissa Riley</p>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="swiper-slide testimonial-card">
-          <p class="testimonial-text">“Julia has been incredibly helpful in giving me a fresh perspective on my work- she is very perceptive, insightful, and a great source of ideas and encouragement.”</p>
-          <p class="testimonial-author">Aryajit Heppell</p>
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div class="swiper-slide testimonial-card">
-          <p class="testimonial-text">"I recommend to you all that engaging with Julia will be a big positive for you. Her energy and positivity are boundless, and a worthwhile journey to be part of. Help her, learn from her and enjoy the wave of excitement and output."</p>
-          <p class="testimonial-author">Ross McCreath</p>
-        </div>
-
-        <!-- Testimonial 4 -->
-        <div class="swiper-slide testimonial-card">
-          <p class="testimonial-text">“Julia is an excellent writer and communicator and an insightful collaborator.”</p>
-          <p class="testimonial-author">Christopher Munden</p>
-        </div>
-
+    <div class="swiper-wrapper">
+      <!-- Testimonial 1 -->
+      <div class="swiper-slide testimonial-card">
+        <p class="testimonial-text">"Julia’s workshop transformed how I see personal storytelling. Even with my background in fundraising, I walked away with new tools to craft and share my story with greater impact. Julia isn’t just creative—she’s a masterful instructor who makes storytelling both accessible and powerful."</p>
+        <p class="testimonial-author">Melissa Riley</p>
       </div>
 
-      <!-- Swiper navigation buttons -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+      <!-- Testimonial 2 -->
+      <div class="swiper-slide testimonial-card">
+        <p class="testimonial-text">“Julia has been incredibly helpful in giving me a fresh perspective on my work- she is very perceptive, insightful, and a great source of ideas and encouragement.”</p>
+        <p class="testimonial-author">Aryajit Heppell</p>
+      </div>
 
-      <!-- Pagination -->
-      <div class="swiper-pagination"></div>
+      <!-- Testimonial 3 -->
+      <div class="swiper-slide testimonial-card">
+        <p class="testimonial-text">"I recommend to you all that engaging with Julia will be a big positive for you. Her energy and positivity are boundless, and a worthwhile journey to be part of. Help her, learn from her and enjoy the wave of excitement and output."</p>
+        <p class="testimonial-author">Ross McCreath</p>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="swiper-slide testimonial-card">
+        <p class="testimonial-text">“Julia is an excellent writer and communicator and an insightful collaborator.”</p>
+        <p class="testimonial-author">Christopher Munden</p>
+      </div>
     </div>
-  </section>
+
+    <!-- Swiper navigation buttons -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
 
 <!-- <section class="testimonials">
   <h2>Testimonials</h2>
