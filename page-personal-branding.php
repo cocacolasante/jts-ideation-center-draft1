@@ -563,7 +563,7 @@ get_header();
           <div class="carousel-item">
             <?php if ( strpos( $item['mime_type'], 'video' ) === 0 ): ?>
               <video
-                  autoplay
+                  autoplay-
                   mute
                   controls
                   playsinline 
@@ -609,33 +609,33 @@ get_header();
       <!-- Testimonial 1 -->
       <div class="swiper-slide testimonial-card">
         <p class="testimonial-text">“This workshop helps you confidently weave yourself into networking conversations and pitches with ease."</p>
-        <p class="testimonial-author">Sarah Galbraith</p>
+        <p class="testimonial-author">-Sarah Galbraith</p>
       </div>
 
       <!-- Testimonial 2 -->
       <div class="swiper-slide testimonial-card">
         <p class="testimonial-text">"Julia helped me create a personal story that not only introduces me but also highlights my work as a brand strategist and marketer. By sharing my story, I create a lasting impression—helping clients get to know me, remember me, and understand how I can help them."</p>
-        <p class="testimonial-author">Cindy Chang</p>
+        <p class="testimonial-author">-Cindy Chang</p>
       </div>
 
       <!-- Testimonial 3 -->
       <div class="swiper-slide testimonial-card">
         <p class="testimonial-text">"The workshop was incredibly practical. It opened my eyes to the power of storytelling in shaping my brand and engaging my audience. My biggest takeaway? Stories about my business aren’t just interesting—they’re essential."</p>
-        <p class="testimonial-author">Dan Brown</p>
+        <p class="testimonial-author">-Dan Brown</p>
       </div>
 
       <!-- Testimonial 4 -->
       <div class="swiper-slide testimonial-card">
         <p class="testimonial-text">"This workshop teaches you how to tell concise and impactful stories that reflect your authentic self and help build deeper connections with others."</p>
-        <p class="testimonial-author">Ramune Bartuskaite</p>
+        <p class="testimonial-author">-Ramune Bartuskaite</p>
       </div>
       <div class="swiper-slide testimonial-card">
         <p class="testimonial-text">“Julia encourages you to take the time to truly reflect on your experiences and how they’ve shaped who you are today. This gives you a stronger sense of professional identity and allows you to communicate a more cohesive message."</p>
-        <p class="testimonial-author">Jaimie Yakaboski</p>
+        <p class="testimonial-author">-Jaimie Yakaboski</p>
       </div>
       <div class="swiper-slide testimonial-card">
         <p class="testimonial-text">"Julia walks you through turning a personal story into an authentic vehicle to share yourself, drive home your strengths, and invite deeper conversations."</p>
-        <p class="testimonial-author">Ben Swofford</p>
+        <p class="testimonial-author">-Ben Swofford</p>
       </div>
 
     </div>

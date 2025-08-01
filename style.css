@@ -6,8 +6,8 @@ Description: Full layout + interaction styles for JT's Ideation Center
 Version: 2.1
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400;700;800;900&display=swap');
 
 * {
     margin: 0;
@@ -107,7 +107,7 @@ html {
     font-size: 1.5em;
     font-weight: bold;
     padding-bottom: 10px;
-    color: #fff;
+    color: var(--text);
 }
 
 .starter {
@@ -464,7 +464,7 @@ body {
   background-color: var(--bg);
 }
 *, ::before, ::after {
-  color: var(--text) !important;
+  color: var(--text);
 }
 
 /* Primary buttons and CTA */
@@ -654,13 +654,16 @@ input[type="button"] {
 }
 .testimonial-text {
   font-style: italic;
+  font-size: 1.2rem;
   margin: 15px;
   flex-grow: 1;
 }
 .testimonial-author {
-  font-weight: bold;
+  font-weight: bolder !important; 
+  font-family: 'Raleway', sans-serif !important;
   text-align: center;
   margin: 15px;
+  color: inherit !important;
 }
 /* Restore testimonial card hover effect */
 .testimonials .testimonial-card {
